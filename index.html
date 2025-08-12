@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brilla Hogar Benidorm</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/logocasa.png" type="image/png">
+</head>
+<body>
+    <header>
+        <nav class="top-nav">
+            <a href="#" class="logo-left" aria-label="Inicio">
+                <img src="img/logo.png" alt="Logo">
+            </a>
+            <div class="hamburger-menu" role="button" aria-label="Abrir menú" aria-controls="primary-navigation" aria-expanded="false" tabindex="0">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-menu" id="primary-navigation">
+                <li><a href="#nosotros" data-i18n="nav.about">Sobre nosotros</a></li>
+                <li><a href="#sobre" data-i18n="nav.services">Nuestros servicios</a></li>
+                <li><a href="#zona" data-i18n="nav.zone">Zona</a></li>
+                <li><a href="#depoimentos" data-i18n="nav.testimonials">Testimonios</a></li>
+                <li><a href="#orcamento" data-i18n="nav.quote">Solicitar</a></li>
+                <li><a href="#galeria" data-i18n="nav.gallery">Galería</a></li>
+                <li><a href="#contato" data-i18n="nav.contact">Contacto</a></li>
+            </ul>
+            <div class="flags-container">
+                <a href="#" class="flag" data-lang="es"><img src="img/espanha.png" alt="Español" title="Español"></a>
+                <a href="#" class="flag" data-lang="en"><img src="img/estados-unidos.png" alt="English" title="English"></a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero__overlay"></div>
+        <div class="hero__content container">
+            <h1 data-i18n="hero.title">Ponte en contacto</h1>
+            <p data-i18n="hero.subtitle">“Deja el trabajo pesado con nosotros. Desde el polvo de la obra hasta la preparación para huéspedes, cuidamos de todo con atención a cada detalle.”</p>
+            <div class="hero__actions">
+                <a href="https://wa.me/34672835065" target="_blank" rel="noopener" class="btn primary" data-i18n="hero.cta">Habla con nosotros</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre nosotros -->
+    <section id="nosotros" class="about">
+        <div class="container">
+            <h2 data-i18n="about.title">Cuidamos tu hogar como si fuera nuestro</h2>
+            <div class="about__text">
+                <p data-i18n="about.p1">En Brilla Hogar Benidorm creemos que un ambiente limpio es sinónimo de bienestar. Con un equipo cualificado y productos de alta calidad, ofrecemos servicios personalizados para viviendas, apartamentos turísticos, limpieza posobra y poseventos.</p>
+                <p data-i18n="about.p2">Nuestro compromiso es la puntualidad, la seguridad y la satisfacción total de nuestros clientes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="services">
+        <div class="container">
+            <h2 data-i18n="services.title">Nuestros servicios</h2>
+            <div class="grid cols-3 services__grid">
+                <article class="card service-card">
+                    <figure class="service-card__media">
+                        <img src="img/services/LIMPEZARESIDECIAL.png" alt="Limpeza Residencial">
+                    </figure>
+                    <h3 data-i18n="services.residential.title">Limpieza residencial</h3>
+                    <p data-i18n="services.residential.desc">Limpieza completa o parcial, adaptada a tus necesidades, dejando cada estancia impecable.</p>
+                </article>
+
+                <article class="card service-card">
+                    <figure class="service-card__media">
+                        <img src="img/services/LIMPEZATURISATICA.png" alt="Limpeza Turística (Airbnb, temporada)">
+                    </figure>
+                    <h3 data-i18n="services.tourism.title">Limpieza turística (Airbnb, temporada)</h3>
+                    <p data-i18n="services.tourism.desc">Preparación e higienización de inmuebles para huéspedes, incluyendo cambio y lavado de ropa de cama y toallas.</p>
+                </article>
+
+                <article class="card service-card">
+                    <figure class="service-card__media">
+                        <img src="img/services/posobra.png" alt="Limpeza Pós-Obra">
+                    </figure>
+                    <h3 data-i18n="services.postwork.title">Limpieza posobra</h3>
+                    <p data-i18n="services.postwork.desc">Eliminación de polvo, residuos y manchas, dejando el inmueble listo para usar.</p>
+                </article>
+
+                <article class="card service-card">
+                    <figure class="service-card__media">
+                        <img src="img/services/posevento.png" alt="Limpeza Pós-Evento">
+                    </figure>
+                    <h3 data-i18n="services.postevent.title">Limpieza posevento</h3>
+                    <p data-i18n="services.postevent.desc">Devolvemos el espacio a su mejor estado, retirando basura, manchas y organizando todo.</p>
+                </article>
+
+                <article class="card service-card">
+                    <figure class="service-card__media">
+                        <img src="img/services/LAVAGEM.png" alt="Lavagem de Roupas de Cama e Toalhas">
+                    </figure>
+                    <h3 data-i18n="services.laundry.title">Lavado de ropa de cama y toallas</h3>
+                    <p data-i18n="services.laundry.desc">Servicio de recogida y entrega, con lavado profesional e higienización completa.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zona section -->
+    <section id="zona" class="zone">
+        <div class="container">
+            <h2>Zona</h2>
+        </div>
+        <div class="zone__panel">
+            <div class="zone__overlay"></div>
+            <div class="container zone__content">
+                <h3>Benidorm y alrededores</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="galeria" class="gallery">
+        <div class="container">
+            <h2 data-i18n="gallery.title">Galería</h2>
+            <p class="gallery__subtitle" data-i18n="gallery.subtitle">Algunos registros de nuestro trabajo en acción</p>
+
+            <div class="grid cols-3 gallery__grid">
+                <figure class="gallery-item">
+                    <img loading="lazy" src="img/gallery/equipe.png" alt="Equipo trabajando en la limpieza" data-i18n-alt="gallery.item1.alt">
+                    <figcaption data-i18n="gallery.item1.caption">Equipo en acción</figcaption>
+                </figure>
+                <figure class="gallery-item">
+                    <img loading="lazy" src="img/gallery/quarto.png" alt="Habitación ordenada con toallas dobladas" data-i18n-alt="gallery.item2.alt">
+                    <figcaption data-i18n="gallery.item2.caption">Habitación ordenada</figcaption>
+                </figure>
+                <figure class="gallery-item">
+                    <img loading="lazy" src="img/gallery/cozinha.png" alt="Cocina reluciente tras la limpieza" data-i18n-alt="gallery.item3.alt">
+                    <figcaption data-i18n="gallery.item3.caption">Cocina reluciente</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="depoimentos" class="testimonials">
+        <div class="container">
+            <h2 data-i18n="testimonials.title">Testimonios de clientes</h2>
+            <div class="grid cols-2 testimonials__grid">
+                <article class="card testimonial">
+                    <blockquote>
+                        <p data-i18n="testimonials.t1">“Contraté la limpieza posevento y quedé impresionada con la rapidez y el cuidado. ¡Recomiendo!”</p>
+                        <cite>– María L.</cite>
+                    </blockquote>
+                </article>
+                <article class="card testimonial">
+                    <blockquote>
+                        <p data-i18n="testimonials.t2">“Mis huéspedes siempre elogian la limpieza del apartamento. ¡Servicio impecable!”</p>
+                        <cite>– João P.</cite>
+                    </blockquote>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Presupuesto -->
+    <section id="orcamento" class="quote">
+        <div class="container">
+            <h2 data-i18n="quote.title">Solicita tu Presupuesto</h2>
+            <form id="quote-form" class="quote__form">
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="q-name" data-i18n="quote.name.label">Nombre</label>
+                        <input type="text" id="q-name" name="name" placeholder="Tu nombre" required data-i18n-placeholder="quote.name.ph">
+                    </div>
+                    <div class="form-field">
+                        <label for="q-phone" data-i18n="quote.phone.label">Teléfono/WhatsApp</label>
+                        <input type="tel" id="q-phone" name="phone" placeholder="(xx) xxxxx-xxxx" required data-i18n-placeholder="quote.phone.ph">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="q-service" data-i18n="quote.service.label">Tipo de servicio deseado</label>
+                        <select id="q-service" name="service" required>
+                            <option value="" disabled selected data-i18n="quote.service.select">Selecciona</option>
+                            <option data-i18n="quote.service.opt1">Limpieza residencial</option>
+                            <option data-i18n="quote.service.opt2">Limpieza turística (Airbnb, temporada)</option>
+                            <option data-i18n="quote.service.opt3">Limpieza posobra</option>
+                            <option data-i18n="quote.service.opt4">Limpieza posevento</option>
+                            <option data-i18n="quote.service.opt5">Lavado de ropa de cama y toallas</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="q-date" data-i18n="quote.date.label">Fecha deseada</label>
+                        <input type="date" id="q-date" name="date">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="q-time" data-i18n="quote.time.label">Horario deseado</label>
+                        <input type="time" id="q-time" name="time">
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="q-message" data-i18n="quote.msg.label">Mensaje</label>
+                    <textarea id="q-message" name="message" rows="4" placeholder="Cuéntanos un poco sobre el servicio..." data-i18n-placeholder="quote.msg.ph"></textarea>
+                </div>
+
+                <div class="quote__actions">
+                    <button type="submit" class="btn primary" data-i18n="quote.submit">Enviar solicitud</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contato" class="contact">
+        <div class="container">
+            <h2 data-i18n="contact.title">Contacto</h2>
+            <div class="contact__grid">
+                <div class="contact__info">
+                    <ul class="contact__list">
+                        <li>
+                            <img class="contact__icon" src="img/telefone.png" alt="Teléfono">
+                            <strong data-i18n="contact.phone.label">Teléfono:</strong>
+                            <a href="tel:+34672835065">+34 672 835 065</a>
+                        </li>
+                        <li>
+                            <img class="contact__icon" src="img/whatsapp.gif" alt="WhatsApp">
+                            <strong data-i18n="contact.whatsapp.label">WhatsApp:</strong>
+                            <a class="btn primary" href="https://wa.me/34672835065" target="_blank" rel="noopener" data-i18n="contact.whatsapp.cta">Hablar por WhatsApp</a>
+                        </li>
+                        <li>
+                            <img class="contact__icon" src="img/email.png" alt="Email">
+                            <strong data-i18n="contact.email.label">Email:</strong>
+                            <a href="mailto:brillahogar@protonmail.com">brillahogar@protonmail.com</a>
+                        </li>
+                        <li>
+                            <img class="contact__icon" src="img/localização.gif" alt="Ubicación">
+                            <strong data-i18n="contact.region.label">Región:</strong>
+                            <span data-i18n="contact.region.value">Benidorm y región</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact__map">
+                    <iframe title="Mapa de Benidorm" src="https://www.google.com/maps?q=Benidorm&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
