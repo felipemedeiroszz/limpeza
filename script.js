@@ -29,9 +29,25 @@ document.addEventListener('DOMContentLoaded', () => {
         service: { label: 'Tipo de servicio deseado', select: 'Selecciona', opt1: 'Limpieza residencial', opt2: 'Limpieza turística (Airbnb, temporada)', opt3: 'Limpieza posobra', opt4: 'Limpieza posevento', opt5: 'Lavado de ropa de cama y toallas' },
         date: { label: 'Fecha deseada' },
         time: { label: 'Horario deseado' },
+        address: {
+          street: { label: 'Calle', ph: 'Tu calle' },
+          number: { label: 'Número', ph: 'Número' },
+          city: { label: 'Ciudad', ph: 'Ciudad' },
+          province: { label: 'Provincia', ph: 'Provincia' },
+          postal: { label: 'Código postal', ph: 'Código postal' }
+        },
+        details: {
+          bathrooms: { label: 'Baños', ph: '0' },
+          rooms: { label: 'Habitaciones/Comodos', ph: '0' },
+          bedrooms: { label: 'Dormitorios', ph: '0' }
+        },
+        laundry: {
+          linens: { label: 'Ropa de cama (unidades)', ph: '0' },
+          towels: { label: 'Toallas (unidades)', ph: '0' }
+        },
         msg: { label: 'Mensaje', ph: 'Cuéntanos un poco sobre el servicio...' },
         submit: 'Enviar solicitud',
-        wa: { name: 'Nombre', phone: 'Teléfono/WhatsApp', service: 'Servicio', date: 'Fecha deseada', time: 'Horario deseado', msg: 'Mensaje' }
+        wa: { name: 'Nombre', phone: 'Teléfono/WhatsApp', service: 'Servicio', date: 'Fecha deseada', time: 'Horario deseado', street: 'Calle', number: 'Número', city: 'Ciudad', province: 'Provincia', postal: 'Código postal', bathrooms: 'Baños', rooms: 'Habitaciones/Comodos', bedrooms: 'Dormitorios', linens: 'Ropa de cama (unidades)', towels: 'Toallas (unidades)', msg: 'Mensaje' }
       },
       contact: { title: 'Contacto', phone: { label: 'Teléfono:' }, whatsapp: { label: 'WhatsApp:', cta: 'Hablar por WhatsApp' }, email: { label: 'Email:' }, region: { label: 'Región:', value: 'Benidorm y región' } }
     },
@@ -63,9 +79,25 @@ document.addEventListener('DOMContentLoaded', () => {
         service: { label: 'Desired service type', select: 'Select', opt1: 'Residential cleaning', opt2: 'Tourist cleaning (Airbnb, seasonal)', opt3: 'Post-construction cleaning', opt4: 'Post-event cleaning', opt5: 'Laundry of bed linens and towels' },
         date: { label: 'Desired date' },
         time: { label: 'Desired time' },
+        address: {
+          street: { label: 'Street', ph: 'Your street' },
+          number: { label: 'Number', ph: 'Number' },
+          city: { label: 'City', ph: 'City' },
+          province: { label: 'Province', ph: 'Province' },
+          postal: { label: 'Postal code', ph: 'Postal code' }
+        },
+        details: {
+          bathrooms: { label: 'Bathrooms', ph: '0' },
+          rooms: { label: 'Rooms', ph: '0' },
+          bedrooms: { label: 'Bedrooms', ph: '0' }
+        },
+        laundry: {
+          linens: { label: 'Bed linens (units)', ph: '0' },
+          towels: { label: 'Towels (units)', ph: '0' }
+        },
         msg: { label: 'Message', ph: 'Tell us a bit about the service...' },
         submit: 'Send request',
-        wa: { name: 'Name', phone: 'Phone/WhatsApp', service: 'Service', date: 'Desired date', time: 'Desired time', msg: 'Message' }
+        wa: { name: 'Name', phone: 'Phone/WhatsApp', service: 'Service', date: 'Desired date', time: 'Desired time', street: 'Street', number: 'Number', city: 'City', province: 'Province', postal: 'Postal code', bathrooms: 'Bathrooms', rooms: 'Rooms', bedrooms: 'Bedrooms', linens: 'Bed linens (units)', towels: 'Towels (units)', msg: 'Message' }
       },
       contact: { title: 'Contact', phone: { label: 'Phone:' }, whatsapp: { label: 'WhatsApp:', cta: 'Chat on WhatsApp' }, email: { label: 'Email:' }, region: { label: 'Region:', value: 'Benidorm and area' } }
     }
@@ -165,6 +197,22 @@ document.addEventListener('DOMContentLoaded', () => {
   setLangAttr(currentLang);
   applyI18n(currentLang);
 
+  // Show/hide details row after selecting a service
+  const serviceSelect = document.getElementById('q-service');
+  const detailsRow = document.getElementById('q-details');
+  const laundryRow = document.getElementById('q-laundry');
+  const toggleDetails = () => {
+    if (!serviceSelect) return;
+    const idx = serviceSelect.selectedIndex; // 0 = placeholder
+    const isLaundry = idx === 5; // opt5 = Lavado de ropa de cama y toallas
+    const hasService = idx > 0;
+    if (detailsRow) detailsRow.style.display = hasService && !isLaundry ? '' : 'none';
+    if (laundryRow) laundryRow.style.display = hasService && isLaundry ? '' : 'none';
+  };
+  serviceSelect?.addEventListener('change', toggleDetails);
+  // Initialize on load
+  toggleDetails();
+
   // Reveal gallery items
   const galleryItems = document.querySelectorAll('.gallery-item');
   if (galleryItems.length) {
@@ -192,15 +240,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const service = document.getElementById('q-service')?.value?.trim() || '';
     const date = document.getElementById('q-date')?.value?.trim() || '';
     const time = document.getElementById('q-time')?.value?.trim() || '';
+    const linens = document.getElementById('q-linens')?.value?.trim() || '';
+    const towels = document.getElementById('q-towels')?.value?.trim() || '';
+    const bathrooms = document.getElementById('q-bathrooms')?.value?.trim() || '';
+    const rooms = document.getElementById('q-rooms')?.value?.trim() || '';
+    const bedrooms = document.getElementById('q-bedrooms')?.value?.trim() || '';
+    const street = document.getElementById('q-street')?.value?.trim() || '';
+    const number = document.getElementById('q-number')?.value?.trim() || '';
+    const city = document.getElementById('q-city')?.value?.trim() || '';
+    const province = document.getElementById('q-province')?.value?.trim() || '';
+    const postal = document.getElementById('q-postal')?.value?.trim() || '';
     const message = document.getElementById('q-message')?.value?.trim() || '';
 
     const d = i18n[currentLang]?.quote?.wa || i18n.es.quote.wa;
+    const idx = document.getElementById('q-service')?.selectedIndex ?? 0;
+    const isLaundry = idx === 5;
     const parts = [
       name && `${d.name}: ${name}`,
       phone && `${d.phone}: ${phone}`,
       service && `${d.service}: ${service}`,
       date && `${d.date}: ${date}`,
       time && `${d.time}: ${time}`,
+      !isLaundry && bathrooms && `${d.bathrooms}: ${bathrooms}`,
+      !isLaundry && rooms && `${d.rooms}: ${rooms}`,
+      !isLaundry && bedrooms && `${d.bedrooms}: ${bedrooms}`,
+      isLaundry && linens && `${d.linens}: ${linens}`,
+      isLaundry && towels && `${d.towels}: ${towels}`,
+      street && `${d.street}: ${street}`,
+      number && `${d.number}: ${number}`,
+      city && `${d.city}: ${city}`,
+      province && `${d.province}: ${province}`,
+      postal && `${d.postal}: ${postal}`,
       message && `${d.msg}: ${message}`
     ].filter(Boolean);
 
@@ -278,35 +348,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }, { root: null, rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
       testimonials.forEach(t => tio.observe(t));
     }
-  }
-  // ===== Orçamento: enviar via WhatsApp =====
-  const quoteForm = document.getElementById('quote-form');
-  if (quoteForm) {
-    quoteForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('q-name')?.value?.trim() || '';
-      const phone = document.getElementById('q-phone')?.value?.trim() || '';
-      const service = document.getElementById('q-service')?.value || '';
-      const date = document.getElementById('q-date')?.value || '';
-      const time = document.getElementById('q-time')?.value || '';
-      const message = document.getElementById('q-message')?.value?.trim() || '';
-
-      const parts = [
-        name && `Nombre: ${name}`,
-        phone && `Teléfono/WhatsApp: ${phone}`,
-        service && `Servicio: ${service}`,
-        date && `Fecha deseada: ${date}`,
-        time && `Horario deseado: ${time}`,
-        message && `Mensaje: ${message}`
-      ].filter(Boolean);
-
-      const finalMsg = parts.join('\n');
-
-      // WhatsApp target number (E.164, no spaces)
-      const targetNumber = '34672835065';
-      const url = `https://wa.me/${targetNumber}?text=${encodeURIComponent(finalMsg)}`;
-      window.open(url, '_blank', 'noopener');
-    });
   }
 });
 
