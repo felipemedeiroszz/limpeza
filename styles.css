@@ -1110,3 +1110,118 @@ footer {
 @media (max-width: 600px) {
   .services .grid.cols-3 { grid-template-columns: 1fr; }
 }
+
+/* ===== Quote (Solicita tu Presupuesto) ===== */
+.quote {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.quote .container {
+  padding-top: 28px;
+}
+
+.quote h2 {
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.quote__form {
+  margin-top: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+@media (min-width: 768px) {
+  .quote__form { padding: 22px; }
+}
+
+.quote__form .form-row {
+  display: grid;
+  gap: 14px;
+}
+
+@media (min-width: 768px) {
+  .quote__form .form-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  /* Single-field rows should use one column on desktop */
+  .quote__form .form-row.form-row--single {
+    grid-template-columns: 1fr;
+  }
+  /* Details row has 3 fields: use 3 columns on desktop to avoid empty space */
+  .quote__form .form-row#q-details {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.quote__form .form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quote__form label {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.quote__form input[type="text"],
+.quote__form input[type="tel"],
+.quote__form input[type="date"],
+.quote__form input[type="time"],
+.quote__form select,
+.quote__form textarea {
+  appearance: none;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  line-height: 1.4;
+  transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+
+.quote__form select {
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+                    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 18px) calc(1em + 2px), calc(100% - 13px) calc(1em + 2px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.quote__form textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.quote__form input:focus,
+.quote__form select:focus,
+.quote__form textarea:focus {
+  outline: none;
+  border-color: #bae6fd; /* sky-200 */
+  box-shadow: 0 0 0 4px rgba(14,165,233,0.18);
+}
+
+.quote__form input::placeholder,
+.quote__form textarea::placeholder { color: #9ca3af; }
+
+.quote__actions {
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 480px) {
+  .quote__actions { justify-content: stretch; }
+  .quote__actions .btn { width: 100%; justify-content: center; }
+}
+
+/* Subtle section divider inside form */
+.quote__form .form-row + .form-row { margin-top: 6px; }
+.quote__form .form-field + .form-field { margin-top: 0; }
