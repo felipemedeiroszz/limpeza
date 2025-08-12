@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         postevent: { title: 'Limpieza posevento', desc: 'Devolvemos el espacio a su mejor estado, retirando basura, manchas y organizando todo.' },
         laundry: { title: 'Lavado de ropa de cama y toallas', desc: 'Servicio de recogida y entrega, con lavado profesional e higienización completa.' }
       },
+      zone: { title: 'Zona', subtitle: 'Benidorm y alrededores' },
       gallery: {
         title: 'Galería', subtitle: 'Algunos registros de nuestro trabajo en acción',
         item1: { alt: 'Equipo trabajando en la limpieza', caption: 'Equipo en acción' },
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         postevent: { title: 'Post-event cleaning', desc: 'We restore the space to its best state, removing trash, stains and organizing everything.' },
         laundry: { title: 'Laundry of bed linens and towels', desc: 'Pickup and delivery service with professional washing and complete sanitization.' }
       },
+      zone: { title: 'Area', subtitle: 'Benidorm and surroundings' },
       gallery: {
         title: 'Gallery', subtitle: 'Some records of our work in action',
         item1: { alt: 'Team working on cleaning', caption: 'Team in action' },
@@ -119,6 +121,15 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Ensure we can close the menu from various handlers
+  const close = () => {
+    if (!menu) return;
+    if (menu.classList.contains(openClass)) {
+      menu.classList.remove(openClass);
+      reflectAriaAndIcon();
+    }
+  };
 
   const toggle = () => {
     menu.classList.toggle(openClass);
